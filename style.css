@@ -1,0 +1,139 @@
+/* general */
+
+@font-face {
+    font-family: Roboto;
+    src: url(asset/font/Roboto.ttf);
+}
+
+:root {
+    --background-color: hsl(0, 0%, 0%);
+    --font-color: hsl(0, 0%, 0%);
+    --font-border: hsl(0, 0%, 100%);
+    --water-color: hsl(201, 73%, 49%);
+
+    --main-width: min(90%, 102.4rem);
+    --wave-width: 93rem;
+
+    --fish-height: 3rem;
+
+    --font-family: "Roboto", sans-serif;
+    --font-size: 20rem;
+}
+
+* {
+    box-sizing: border-box;
+
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    block-size: 100%;
+
+    background-color: var(--background-color);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+/* body */
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* mian */
+
+main {
+    display: flex;
+
+    inline-size: var(--main-width);
+
+    overflow-x: scroll;
+
+    transition: all 3s;
+}
+
+main::-webkit-scrollbar {
+    block-size: 0;
+}
+
+/* main container */
+
+.container {
+    display: flex;
+    flex-direction: row;
+
+    inline-size: 200%;
+}
+
+/* section in main container */
+
+.year {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    min-inline-size: 100%;
+}
+
+/* digit of year */
+
+span {
+    color: var(--font-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    -webkit-text-stroke: 0.5rem var(--font-border);
+}
+
+/* pitcher */
+
+.pitcher {
+    position: relative;
+}
+
+/* water in pitcher */
+
+.water {
+    position: absolute;
+    inset-inline: 1rem;
+    inset-block-end: 5rem;
+
+    border-radius: 0 0 5rem 5rem;
+
+    overflow: hidden;
+}
+
+/* zero in pitcher */
+
+div > span {
+    position: relative;
+
+    z-index: 1;
+}
+
+/* water wave in pitcher */
+
+.wave {
+    inline-size: var(--wave-width);
+
+    animation: swell 2s linear infinite;
+    animation-fill-mode: forwards;
+
+    fill: var(--water-color);
+}
+
+/* fish image */
+
+img {
+    block-size: var(--fish-height);
+
+    position: absolute;
+
+    z-index: 2;
+}
